@@ -26,6 +26,7 @@ LIC_FILES_CHKSUM = "file://main.cpp;md5=56e7f80d726792929d5d089852de7cde;beginli
 inherit qmake5
 require recipes-qt/qt5/qt5-git.inc
 
+QT_GIT = "git://github.com/qtproject"
 QT_MODULE = "qt-apps-boot2qt-demos"
 
 SRCREV = "b6217fb2bb7702324da2a9f3f45be4a60e6ffe6c"
