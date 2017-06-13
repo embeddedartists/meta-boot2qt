@@ -31,7 +31,7 @@ LIC_FILES_CHKSUM = " \
 
 DEPENDS += "qtbase qtxmlpatterns qtdeclarative qtgraphicaleffects"
 
-SRCREV = "e93c73c0aa15cd973e008a04a70a7c69719ad244"
+SRCREV = "be77d8798a1df1cb928b944c145db3fa9aeb9777"
 
 FILES_${PN}-qmldesigner += " \
     ${OE_QMAKE_PATH_QML}/*/*/*/designer \

@@ -24,5 +24,3 @@ FILESEXTRAPATHS_append := "${THISDIR}/${PN}:"
 SRC_URI_append_class-target = " \
     file://0001-Remove-qgltf.patch \
     "
-
-SRCREV = "d3889211dc245d44dab25dcc9fbbc4b57e92ac33"
