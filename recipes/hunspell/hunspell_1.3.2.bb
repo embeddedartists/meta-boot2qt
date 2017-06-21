@@ -44,6 +44,8 @@ PR = "r0"
 
 inherit autotools gettext
 
+RDEPENDS_${PN} = "perl"
+
 PACKAGES += "${PN}-dicts"
 RRECOMMENDS_${PN} += "${PN}-dicts"
 FILES_${PN}-dicts = "${datadir}/hunspell"
