@@ -1,6 +1,6 @@
 ############################################################################
 ##
-## Copyright (C) 2016 The Qt Company Ltd.
+## Copyright (C) 2018 The Qt Company Ltd.
 ## Contact: https://www.qt.io/licensing/
 ##
 ## This file is part of the Boot to Qt meta layer.
@@ -42,9 +42,9 @@ python __anonymous() {
 RDEPENDS_${PN} += "\
     nativesdk-packagegroup-b2qt-embedded-toolchain-host \
     nativesdk-qt3d-tools \
-    nativesdk-qtbase-tools \
-    nativesdk-qtbase-tools-dev \
-    nativesdk-qtbase-tools-staticdev \
+    nativesdk-qtbase \
+    nativesdk-qtbase-dev \
+    nativesdk-qtbase-staticdev \
     nativesdk-qtdeclarative-staticdev \
     nativesdk-qtdeclarative-tools \
     nativesdk-qtremoteobjects-tools \
