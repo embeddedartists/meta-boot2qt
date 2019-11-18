@@ -13,9 +13,9 @@
 # 0 33kiB    4MiB          32MiB + rootfs + IMAGE_EXTRA_SPACE (default 10MiB)
 #
 
-part SPL --source rawcopy --sourceparams="file=${SPL_BINARY}" --ondisk mmcblk3 --no-table --align 1
-part u-boot --source rawcopy --sourceparams="file=u-boot-${MACHINE}.${UBOOT_SUFFIX}" --ondisk mmcblk3 --no-table --align 69
-part /boot --source bootimg-partition --ondisk mmcblk3 --fstype=vfat --label boot --active --align 8192 --size 32
-part / --source rootfs --ondisk mmcblk3 --fstype=ext4 --label root --align 4096
+part SPL --source rawcopy --sourceparams="file=${SPL_BINARY}" --ondisk ${WIC_FSTAB_BLKDEV} --no-table --align 1
+part u-boot --source rawcopy --sourceparams="file=u-boot-${MACHINE}.${UBOOT_SUFFIX}" --ondisk ${WIC_FSTAB_BLKDEV} --no-table --align 69
+part /boot --source bootimg-partition --ondisk ${WIC_FSTAB_BLKDEV} --fstype=vfat --label boot --active --align 8192 --size 32
+part / --source rootfs --ondisk ${WIC_FSTAB_BLKDEV} --fstype=ext4 --label root --align 4096
 
 bootloader --ptable msdos

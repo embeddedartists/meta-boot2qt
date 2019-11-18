@@ -1,6 +1,6 @@
 ############################################################################
 ##
-## Copyright (C) 2019 The Qt Company Ltd.
+## Copyright (C) 2018 The Qt Company Ltd.
 ## Contact: https://www.qt.io/licensing/
 ##
 ## This file is part of the Boot to Qt meta layer.
@@ -27,27 +27,37 @@
 ##
 ############################################################################
 
-include conf/distro/include/fsl-imx8.inc
+LICENSE = "The-Qt-Company-Commercial"
+LIC_FILES_CHKSUM = "file://${BOOT2QTBASE}/licenses/The-Qt-Company-Commercial;md5=948f8877345cd66106f11031977a4625"
+DEPENDS = "u-boot-mkimage-native"
 
-DEPLOY_CONF_NAME = "Embedded Artists iMX6 Quad COM board"
+PV = "1.0"
 
-PREFERRED_PROVIDER_virtual/kernel_imx = "linux-ea"
-PREFERRED_PROVIDER_virtual/bootloader_imx = "u-boot-ea"
-
-BBMASK += "\
-    meta-ea/recipes-bsp/imx-mkimage/imx-boot_0.2.bbappend \
+SRC_URI = " \
+    file://bootscript.txt \
     "
 
-WKS_FILE = "ea-uboot-bootpart.wks.in"
-WKS_FILE_DEPENDS += "u-boot-ea u-boot-script-ea"
-WKS_FILE_DEPENDS_remove = "imx-boot"
+S = "${WORKDIR}"
 
-WIC_FSTAB_BLKDEV = "mmcblk3"
+inherit deploy
 
-IMAGE_BOOT_FILES = "\
-    zImage \
-    imx6qea*.dtb \
-    boot.scr \
-    "
+do_mkimage () {
+    uboot-mkimage -A arm -O linux -T script -C none -a 0 -e 0 \
+                  -n "EA BootScript" -d ${WORKDIR}/bootscript.txt \
+                  ${S}/boot.scr
+}
 
-#IMAGE_FSTYPES += "tar.gz"
+addtask mkimage after do_compile before do_install
+
+do_deploy () {
+    install -d ${DEPLOYDIR}/${MACHINE}
+    install -m 0644 -t ${DEPLOYDIR} ${S}/*.scr
+}
+
+addtask deploy after do_install before do_build
+
+do_compile[noexec] = "1"
+do_install[noexec] = "1"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+COMPATIBLE_MACHINE = "(imx6qea-com|imx8mmea-ucom)"
