@@ -56,7 +56,7 @@ BUILDDIRECTORY=${BUILDDIRECTORY:-build-${MACHINE}}
 
 if [ ! -f ${PWD}/${BUILDDIRECTORY}/conf/bblayers.conf ]; then
   case ${MACHINE} in
-    imx8mmea-ucom|imx6qea-com)
+    imx8mmea-ucom|imx8mqea-com|imx6qea-com)
       LAYERSCONF="bblayers.conf.embeddedartists.sample"
     ;;
     imx8*)
