@@ -115,7 +115,7 @@ get_groups() {
     all)
       PROJECT_GROUPS="external"
     ;;
-    imx8mmea-ucom|imx8mqea-com|imx6qea-com*)
+    imx8mmea-ucom|imx8mqea-com|imx6qea-com|imx7dea-com|imx7dea-ucom)
       PROJECT_GROUPS="embeddedartists"
     ;;
     imx8*)
