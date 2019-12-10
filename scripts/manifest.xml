@@ -16,6 +16,7 @@
   <remote fetch="git://github.com/boundarydevices" name="boundary"/>
   <remote fetch="git://github.com/toradex" name="toradex-github"/>
   <remote fetch="git://source.codeaurora.org/external/imx" name="aurora-imx"/>
+  <remote fetch="git://github.com/embeddedartists" name="embeddedartists"/>
 
   <project name="poky"
            remote="yocto"
@@ -38,12 +39,12 @@
            remote="freescale"
            revision="b73854c078b0a174613135b60da3377a1055f477"
            path="sources/meta-freescale"
-           groups="notdefault,external,fsl,toradex,smx6,boundary,fsl-imx8,toradex-imx8"/>
+           groups="notdefault,external,fsl,toradex,smx6,boundary,fsl-imx8,toradex-imx8,embeddedartists"/>
   <project name="meta-freescale-3rdparty"
            remote="freescale"
            revision="c4b5ac6b20e4245ce0630e9197313aaef999a331"
            path="sources/meta-freescale-3rdparty"
-           groups="notdefault,external,fsl,toradex,smx6,boundary,fsl-imx8,toradex-imx8"/>
+           groups="notdefault,external,fsl,toradex,smx6,boundary,fsl-imx8,toradex-imx8,embeddedartists"/>
   <project name="meta-raspberrypi"
            remote="yocto"
            revision="89bdf97beaf3b136c24c4d6f86c0bcbb47fe3043"
@@ -99,6 +100,11 @@
            revision="55754a3cc79759f18fa1df88ae2ffa91fbd87d84"
            path="sources/meta-fsl-bsp-release-toradex"
            groups="notdefault,external,toradex-imx8"/>
+  <project name="meta-ea"
+           remote="embeddedartists"
+           revision="718fe9ab6c5a53649de6a19e89cb82b698993924"
+           path="sources/meta-ea"
+           groups="notdefault,external,embeddedartists"/>
 
   <project name="nvidia-layer"
            remote="playground"
